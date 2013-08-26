@@ -215,8 +215,10 @@ namespace Fizzler
                     case "empty": _generator.Empty(); break;
                     default:
                         {
-                            throw new FormatException(string.Format(
-                                "Unknown pseudo-class '{0}'. Use either first-child, last-child, only-child or empty.", clazz));
+							_generator.Empty();
+							break;
+							//throw new FormatException(string.Format(
+							//    "Unknown pseudo-class '{0}'. Use either first-child, last-child, only-child or empty.", clazz));
                         }
                 }
             }

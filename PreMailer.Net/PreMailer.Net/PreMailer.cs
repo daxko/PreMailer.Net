@@ -63,5 +63,10 @@ namespace PreMailer.Net
 
 			return doc.DocumentNode.OuterHtml;
 		}
+
+		public PreMailer IgnoreUnknownPseudoClasses()
+		{
+			return this;
+		}
 	}
 }

@@ -38,6 +38,17 @@ namespace PreMailer.Net.Tests
 			Assert.IsTrue(premailedOutput.Contains("<div class=\"test\" style=\"width: 100px;"));
 		}
 
+		[TestMethod]
+		public void MoveCssInline_IgnoreUnknownPseudoClasses()
+		{
+			string input = "<html><head><style type=\"text/css\">.test:link { width: 150px; }</style></head><body><div class=\"test\" style=\"width: 100px;\">test</div></body></html>";
+
+			sut.IgnoreUnknownPseudoClasses();
+			string premailedOutput = sut.MoveCssInline(input, false);
+
+			Assert.IsTrue(premailedOutput.Contains("<div class=\"test\" style=\"width: 100px;"));
+		}
+
 		[TestMethod, Ignore]
 		public void ManualIntegrationTest()
 		{
